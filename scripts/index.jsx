@@ -1,19 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
 import CommentList from './components/CommentList'
 import CommentForm from './components/CommentForm'
 
-let data = [
-  {id: 1, author: "Pete Hunt", text: "This is one comment"},
-  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
-]
-
 class CommentBox extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+  }
+  componentDidMount() {
+    this.loadCommentsFromServer()
+    setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval)
+  }
+  loadCommentsFromServer() {
+    axios.get(this.props.url)
+      .then( res => this.setState({ data: res.data }) )
+      .catch( err => console.log(err) )
+  }
   render() {
     return (
       <div className='comment__box'>
         <h1>Comments</h1>
-        <CommentList data={this.props.data} />
+        <CommentList data={this.state.data} />
         <CommentForm/>
       </div>
     )
@@ -21,6 +32,6 @@ class CommentBox extends React.Component {
 }
 
 ReactDOM.render(
-  <CommentBox data={data} />
+  <CommentBox url='/api/comments' pollInterval={2000} />
   ,document.getElementById('content')
 )
