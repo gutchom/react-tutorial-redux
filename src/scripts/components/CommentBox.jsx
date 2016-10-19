@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import axios from 'axios'
 import CommentList from './CommentList'
 import CommentForm from './CommentForm'
 
-class CommentBox extends React.Component {
+const defaultProps = {
+  url: '/api/comments',
+  pollInterval: 2000,
+}
+
+const propTypes = {
+  url: PropTypes.string,
+  pollInterval: PropTypes.number,
+}
+
+class CommentBox extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -41,5 +51,8 @@ class CommentBox extends React.Component {
     )
   }
 }
+
+CommentBox.defaultProps = defaultProps
+CommentBox.propTypes = propTypes
 
 export default CommentBox

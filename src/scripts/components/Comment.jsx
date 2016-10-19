@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import Remarkable from 'remarkable'
 
-class Comment extends React.Component {
+const propTypes = {
+  author: PropTypes.string,
+  children: PropTypes.string,
+}
+
+class Comment extends Component {
   rawMarkup() {
     const md = new Remarkable()
     const rawMarkup = md.render(this.props.children.toString())
@@ -18,5 +23,7 @@ class Comment extends React.Component {
     )
   }
 }
+
+Comment.propTypes = propTypes
 
 export default Comment

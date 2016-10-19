@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 
-class CommentForm extends React.Component {
+const propTypes = {
+  onCommentSubmit: PropTypes.func,
+}
+
+class CommentForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -44,5 +48,7 @@ class CommentForm extends React.Component {
     )
   }
 }
+
+CommentForm.propTypes = propTypes
 
 export default CommentForm

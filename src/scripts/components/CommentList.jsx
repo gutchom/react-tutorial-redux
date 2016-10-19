@@ -1,5 +1,13 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Comment from './Comment'
+
+const defaultProps = {
+  data: [],
+}
+
+const propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+}
 
 function CommentList({ data }) {
   return (
@@ -12,5 +20,8 @@ function CommentList({ data }) {
     </div>
   )
 }
+
+CommentList.defaultProps = defaultProps
+CommentList.propTypes = propTypes
 
 export default CommentList
