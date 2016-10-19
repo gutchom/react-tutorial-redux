@@ -1,0 +1,112 @@
+/* This file is just a sample */
+
+$widthPC: 980px;
+$widthTablet: 800px;
+$widthPhone: 640px;
+$keyColor1: #1EB5DD;
+$keyColor2: #114C8C;
+$keyColor3: #333;
+$keyColor4: #fffef0;
+
+* {
+  font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+  text-align: justify;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: #333;
+  letter-spacing: .01em;
+  line-height: 1.5em;
+}
+
+html, body, ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4 {
+  color: $keyColor2;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.cf {
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+.comment__box {
+  max-width: $widthPhone;
+  width: 100%;
+  margin: 48px auto;
+  padding: 12px;
+  box-shadow: 0 0 8px 4px #ccc;
+  h1 {
+    color: $keyColor3;
+    font-size: 36px;
+    margin: 24px auto;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto 24px;
+  }
+  input {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border: none;
+    padding: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+  input:nth-of-type(1) {
+    max-width: 240px;
+    font-size: 24px;
+    font-weight: bold;
+    color: $keyColor2;
+  }
+  input:nth-of-type(2) {
+    min-width: 320px;
+    font-size: 16px;
+  }
+  input[type="submit"] {
+    background: #fff;
+    border-top: 1px solid #aaa;
+    border-right: 3px solid #444;
+    border-bottom: 3px solid #444;
+    border-left: 1px solid #aaa;
+    border-radius: 4px;
+    color: $keyColor3;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 24px auto;
+    padding: 4px 24px;
+    &:focus,
+    &:hover {
+      background: #aaa;
+      color: #fff;
+    }
+    &:active {
+      border-top: 3px solid #444;
+      border-right: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+      border-left: 3px solid #444;
+    }
+  }
+}
