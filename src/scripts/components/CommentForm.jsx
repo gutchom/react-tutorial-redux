@@ -5,7 +5,7 @@ class CommentForm extends React.Component {
     super(props)
     this.state = {
       author: '',
-      text: ''
+      text: '',
     }
   }
   handleAuthorChange(e) {
@@ -16,30 +16,30 @@ class CommentForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    let author = this.state.author.trim()
-    let text = this.state.text.trim()
-    if(!text || !author) {
+    const author = this.state.author.trim()
+    const text = this.state.text.trim()
+    if (!text || !author) {
       return
     }
-    this.props.onCommentSubmit({ author: author, text: text })
+    this.props.onCommentSubmit({ author, text })
     this.setState({ author: '', text: '' })
   }
   render() {
-    return(
-      <form className='comment__form' onSubmit={e => this.handleSubmit(e)}>
+    return (
+      <form className="comment__form" onSubmit={e => this.handleSubmit(e)}>
         <input
-          type='text'
-          placeholder='Your name'
+          type="text"
+          placeholder="Your name"
           value={this.state.author}
           onChange={e => this.handleAuthorChange(e)}
         />
         <input
-          type='text'
-          placeholder='Say something...'
+          type="text"
+          placeholder="Say something..."
           value={this.state.text}
           onChange={e => this.handleTextChange(e)}
         />
-        <input type='submit' value='Post' />
+        <input type="submit" value="Post" />
       </form>
     )
   }
