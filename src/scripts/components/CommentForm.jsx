@@ -25,7 +25,7 @@ class CommentForm extends Component {
     if (!text || !author) {
       return
     }
-    this.props.onCommentSubmit({ author, text })
+    this.props.onCommentSubmit({ author, text, id: Date.now() })
     this.setState({ author: '', text: '' })
   }
   render() {
